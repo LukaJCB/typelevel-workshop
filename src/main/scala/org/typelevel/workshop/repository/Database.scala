@@ -26,15 +26,6 @@ object Database {
         owner       INT,
         FOREIGN KEY (owner) REFERENCES user(id)
       )
-    """.update.run,
-    sql"""
-      CREATE TABLE star (
-        starId    INT AUTO_INCREMENT PRIMARY KEY,
-        projectId INT,
-        userId    INT,
-        FOREIGN KEY (projectId) REFERENCES project(id),
-        FOREIGN KEY (userId) REFERENCES user(id)
-      )
     """.update.run
   ).traverse_(_.transact(xa))
 
@@ -52,10 +43,6 @@ object Database {
     sql"""
       INSERT INTO project (id, name, description, owner)
       VALUES  (0, 'Cats', 'Functional abstractions for Scala', 1);
-    """.update.run,
-    sql"""
-      INSERT INTO star (projectId, userId)
-      VALUES  (0, 0);
     """.update.run
   ).traverse_(_.transact(xa))
 }
