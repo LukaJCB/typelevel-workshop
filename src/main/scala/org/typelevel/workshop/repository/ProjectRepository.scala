@@ -17,7 +17,6 @@ object ProjectRepository {
 
   def deleteProject(name: String): IO[Unit] = (for {
     projectId <- sql"SELECT id FROM project WHERE name = $name".query[Int].unique
-    _ <- sql"DELETE FROM star WHERE projectId = $projectId".update.run
     _ <- sql"DELETE FROM project WHERE id = $projectId".update.run
   } yield ()).transact(Database.xa).attempt.void
 

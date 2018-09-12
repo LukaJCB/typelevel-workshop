@@ -20,6 +20,10 @@ Of course you can also use `sbt`'s triggered execution to restart the server on 
 sbt:typelevel-workshop> ~reStart
 ```
 
+## Sample solution
+
+You can see a sample solution simply by switching to the `result` branch :)
+
 
 ## Assignments
 

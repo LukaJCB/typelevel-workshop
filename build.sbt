@@ -26,6 +26,7 @@ lazy val root = (project in file("."))
       "-Ywarn-unused:params",
       "-Ywarn-value-discard"
     ),
+    addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.6"),
     libraryDependencies ++= Seq(
 
       "org.http4s"      %% "http4s-blaze-server" % Http4sVersion,
