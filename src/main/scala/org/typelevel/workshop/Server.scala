@@ -6,7 +6,9 @@ import fs2.StreamApp.ExitCode
 import fs2.{Stream, StreamApp}
 import org.http4s.server.blaze.BlazeBuilder
 import org.typelevel.workshop.http.{ProjectService, UserService}
-import org.typelevel.workshop.repository.Database
+import org.typelevel.workshop.db.Database
+import org.typelevel.workshop.interpreters.ProjectRepositoryIO._
+import org.typelevel.workshop.interpreters.UserRepositoryIO._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -16,8 +18,8 @@ object Server extends StreamApp[IO] {
     Stream.eval(Database.schemaDefinition *> Database.insertions) *>
       BlazeBuilder[IO]
         .bindHttp()
-        .mountService(UserService.service, "/users")
-        .mountService(ProjectService.service, "/projects")
+        .mountService(new UserService[IO].service, "/users")
+        .mountService(new ProjectService[IO].service, "/projects")
         .serve
 
 }

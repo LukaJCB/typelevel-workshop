@@ -1,4 +1,4 @@
-package org.typelevel.workshop.repository
+package org.typelevel.workshop.db
 
 import cats.effect.IO
 import cats.implicits._

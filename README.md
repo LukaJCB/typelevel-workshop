@@ -1,4 +1,4 @@
-# Scala-Italy Typelevel Workshop
+# Typelevel Workshop Final Project
 
 ## Prerequisites
 
@@ -80,6 +80,17 @@ Content-Length: 51
     "email": "jd@example.com"
 }
 ```
+
+### Logging
+
+ 1. Inside the `algebra` package, you can find a `Logging` algebra that's currently empty define a few logging functions
+ 2. In the `ProjectService` and `UserService` add logging whenever you fetch data.
+
+### Testing
+
+ 1. Right now there are no tests, however there's a `State` interpreter for `ProjectRepository` which can be used for testing purposes, define a `State` interpreter for `UserRepository` as well.
+ 2. Pull out as much of the logic from the `http` package as you can into a separate algebra. You should be able to write some tests for this one using the defined `State` interpreters.
+
 
 ### The projects resource
 
