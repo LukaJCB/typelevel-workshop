@@ -1,6 +1,5 @@
 package workshop
 
-import com.sun.xml.internal.ws.policy.sourcemodel.ModelNode
 import simulacrum.typeclass
 import workshop.typeclasses._
 import workshop.abstractions.Monoidal

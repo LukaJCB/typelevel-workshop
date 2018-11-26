@@ -29,7 +29,7 @@ object state {
 
 
   //Implement the monad instance for State
-  implicit def stateMonad: Monad[State] = ???
+  implicit def stateMonad[S]: Monad[State[S, ?]] = ???
 
 
 
